@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Laid Beck — Scoring for Film, TV &amp; Games</title>
+<meta name="description" content="Laid Beck — original scoring for film, TV, and games. Mood-driven cues built to picture.">
+<meta property="og:title" content="Laid Beck — Scoring">
+<meta property="og:description" content="Original scoring for film, TV, and games. Mood-driven cues built to picture.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;900&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#050710;
+    --bg-2:#0A0E1A;
+    --bg-card:#0D1220;
+    --blue:#2F6BFF;
+    --blue-bright:#5B93FF;
+    --violet:#8B5CF6;
+    --ice:#9FCBFF;
+    --cream:#F2F5FC;
+    --muted:#7E89A3;
+    --hair:#20283C;
+    --bar-h:36px;
+    --mx:50%;
+    --my:50%;
+    --wrap-max:1180px;
+    --ember-1:#FFE8B0;
+    --ember-2:#FF8A3D;
+    --ember-3:#FF4B1F;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    background-image:radial-gradient(rgba(91,147,255,0.07) 1px, transparent 1.5px);
+    background-size:24px 24px;
+    color:var(--cream);
+    font-family:'Inter',sans-serif;
+    font-weight:400;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    padding-top:var(--bar-h);
+    padding-bottom:var(--bar-h);
+    overflow-x:hidden;
+    cursor:default;
+  }
+  ::selection{background:var(--blue);color:#fff;}
+  a{color:inherit;text-decoration:none;}
+
+  .display{font-family:'Unbounded',sans-serif;font-weight:700;letter-spacing:-0.01em;text-transform:uppercase;}
+  .label{
+    font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:600;
+    letter-spacing:0.24em;text-transform:uppercase;color:var(--ice);
+  }
+
+  .grain{
+    position:fixed;inset:0;pointer-events:none;z-index:90;opacity:0.045;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .letterbox{position:fixed;left:0;right:0;height:var(--bar-h);background:var(--bg);z-index:100;display:flex;align-items:center;}
+  .letterbox.top{top:0;border-bottom:2px solid var(--hair);}
+  .letterbox.bottom{bottom:0;border-top:2px solid var(--hair);}
+  .letterbox .wrap{width:100%;display:flex;justify-content:space-between;}
+  .letterbox span{font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);font-weight:600;}
+  @media(max-width:640px){.letterbox span.hide-mobile{display:none;}}
+
+  .wrap{max-width:var(--wrap-max);margin:0 auto;padding:0 32px;position:relative;z-index:2;}
+
+  nav{position:sticky;top:var(--bar-h);z-index:50;background:rgba(5,7,16,0.92);backdrop-filter:blur(10px);border-bottom:2px solid var(--hair);}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:20px 32px;}
+  .nav-name{font-family:'Unbounded',sans-serif;font-weight:700;font-size:16px;letter-spacing:0;text-transform:uppercase;}
+  .nav-name span{color:var(--blue-bright);}
+  .nav-links{display:flex;gap:34px;font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);}
+  .nav-links a{position:relative;padding-bottom:3px;transition:color .2s ease;}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--blue-bright);transition:width .25s ease;}
+  .nav-links a:hover::after{width:100%;}
+  .nav-links a:hover{color:var(--cream);}
+  .nav-links a.active{color:var(--blue-bright);}
+  .nav-links a.active::after{width:100%;}
+
+  .hero{position:relative;padding:120px 0 90px;text-align:center;overflow:hidden;}
+  .hero-glow{
+    position:absolute;inset:-20%;pointer-events:none;z-index:0;
+    background:radial-gradient(520px circle at var(--mx) var(--my), rgba(139,92,246,0.24), transparent 60%);
+    transition:background .05s linear;
+  }
+  .hero > .wrap{position:relative;z-index:2;}
+  .hero .label{display:block;margin-bottom:26px;}
+  .hero h1{
+    font-family:'Unbounded',sans-serif;font-weight:900;
+    font-size:clamp(38px,7vw,72px);
+    line-height:1.02;letter-spacing:-0.02em;
+    color:var(--cream);text-transform:uppercase;
+  }
+  .hero h1 .it{color:var(--blue-bright);}
+  .hero .tagline{
+    font-family:'Space Grotesk',sans-serif;font-weight:500;text-transform:uppercase;
+    font-size:clamp(13px,1.8vw,16px);letter-spacing:0.3em;color:var(--muted);
+    margin-top:24px;
+  }
+  .rule{width:80px;height:3px;background:linear-gradient(90deg,var(--blue),var(--violet));margin:38px auto;}
+  .cta-row{display:flex;gap:16px;justify-content:center;margin-top:12px;flex-wrap:wrap;}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;padding:16px 32px;
+    font-family:'Space Grotesk',sans-serif;font-weight:600;
+    font-size:12px;letter-spacing:0.12em;text-transform:uppercase;
+    border:2px solid var(--blue);transition:transform .15s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease, color .2s ease;
+    position:relative;
+  }
+  .btn-solid{background:var(--blue);color:#05070F;}
+  .btn-solid:hover{background:var(--blue-bright);border-color:var(--blue-bright);box-shadow:0 0 30px rgba(91,147,255,0.6);}
+  .btn-ghost{color:var(--cream);border-color:var(--hair);}
+  .btn-ghost:hover{border-color:var(--blue-bright);color:var(--blue-bright);box-shadow:0 0 20px rgba(91,147,255,0.25);}
+
+  section{padding:80px 0;border-top:2px solid var(--hair);position:relative;z-index:2;}
+  .section-head{text-align:center;margin-bottom:52px;}
+  .section-head .label{display:block;margin-bottom:16px;}
+  .section-head h2{font-family:'Unbounded',sans-serif;font-weight:700;text-transform:uppercase;font-size:clamp(24px,3.4vw,34px);}
+
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+
+  .bleed{
+    position:relative;left:50%;right:50%;margin-left:-50vw;margin-right:-50vw;width:100vw;
+    height:min(58vh,500px);overflow:hidden;border-top:2px solid var(--hair);border-bottom:2px solid var(--hair);
+  }
+  .bleed img{width:100%;height:100%;object-fit:cover;object-position:center 15%;filter:grayscale(1) contrast(1.1) brightness(0.88);display:block;}
+  .bleed::after{
+    content:"";position:absolute;inset:0;
+    background:linear-gradient(180deg, rgba(5,7,16,0.7) 0%, rgba(5,7,16,0.05) 24%, rgba(5,7,16,0.05) 68%, rgba(5,7,16,0.9) 100%),
+               linear-gradient(90deg, rgba(5,7,16,0.55) 0%, transparent 18%, transparent 82%, rgba(5,7,16,0.55) 100%);
+  }
+  .bleed-cap{
+    position:absolute;left:32px;bottom:26px;z-index:2;
+    font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--ice);
+  }
+
+  .lede{max-width:700px;margin:0 auto;text-align:center;}
+  .pull{
+    font-family:'Unbounded',sans-serif;font-weight:600;text-transform:uppercase;
+    font-size:clamp(20px,2.8vw,28px);color:var(--cream);line-height:1.4;letter-spacing:-0.005em;
+  }
+  .pull .it{color:var(--blue-bright);}
+  .body-text{color:var(--muted);font-size:16px;font-weight:300;margin-top:26px;line-height:1.7;}
+
+  .mood-grid{display:flex;flex-wrap:wrap;gap:14px;justify-content:center;max-width:820px;margin:0 auto;}
+  .mood-chip{
+    font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;
+    padding:12px 22px;border:2px solid var(--hair);color:var(--muted);transition:all .2s ease;
+  }
+  .mood-chip:hover{border-color:var(--blue);color:var(--blue-bright);box-shadow:0 0 20px rgba(47,107,255,0.2);}
+
+  .film-wrap{max-width:820px;margin:0 auto;text-align:center;}
+  .film-wrap h3{font-family:'Unbounded',sans-serif;font-weight:700;text-transform:uppercase;font-size:26px;margin-bottom:14px;}
+  .film-wrap p{color:var(--muted);font-size:15px;max-width:520px;margin:0 auto 28px;}
+  .video-embed{
+    border:2px solid var(--hair);background:#000;aspect-ratio:16/9;overflow:hidden;margin:0 auto;
+  }
+  .video-embed iframe{width:100%;height:100%;display:block;border:0;}
+  .watch-link{
+    display:inline-block;margin-top:22px;
+    font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.12em;text-transform:uppercase;
+    color:var(--muted);transition:color .2s ease;
+  }
+  .watch-link:hover{color:var(--blue-bright);}
+
+  .fit-grid{display:grid;grid-template-columns:1fr;gap:0;max-width:780px;margin:0 auto;border:2px solid var(--hair);}
+  @media(min-width:720px){.fit-grid{grid-template-columns:1fr 1fr;}}
+  .fit-col{padding:32px;}
+  .fit-col:first-child{border-bottom:2px solid var(--hair);}
+  @media(min-width:720px){.fit-col:first-child{border-bottom:none;border-right:2px solid var(--hair);}}
+  .fit-col h3{font-family:'Unbounded',sans-serif;font-weight:700;text-transform:uppercase;font-size:17px;margin-bottom:20px;}
+  .fit-col ul{list-style:none;}
+  .fit-col li{padding:13px 0;border-top:1px solid var(--hair);font-size:14px;color:var(--muted);font-weight:300;transition:color .2s ease,padding-left .2s ease;}
+  .fit-col li:first-child{border-top:none;}
+  .fit-col li:hover{color:var(--cream);padding-left:8px;}
+
+  footer{padding:90px 0 60px;text-align:center;}
+  .contact-row{display:flex;flex-wrap:wrap;justify-content:center;gap:56px;padding-bottom:44px;}
+  .contact-item .lbl{font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+  .contact-item .val{font-family:'Unbounded',sans-serif;font-size:15px;font-weight:600;text-transform:uppercase;color:var(--blue-bright);transition:color .2s ease;}
+  .contact-item .val:hover{color:var(--ice);}
+  .closing{font-family:'Inter',sans-serif;font-style:italic;font-weight:300;font-size:16px;color:var(--muted);max-width:440px;margin:0 auto;}
+
+  .ember{
+    position:fixed;pointer-events:none;z-index:80;
+    width:6px;height:6px;border-radius:50%;
+    background:radial-gradient(circle, var(--ember-1) 0%, var(--ember-2) 45%, var(--ember-3) 75%, transparent 100%);
+    box-shadow:0 0 10px 2px rgba(255,120,40,0.55);
+    transform:translate(-50%,-50%);
+    animation:emberRise 1.15s ease-out forwards;
+    will-change:transform, opacity;
+  }
+  @keyframes emberRise{
+    0%{transform:translate(-50%,-50%) translateY(0) scale(1);opacity:0.95;}
+    55%{opacity:0.65;}
+    100%{transform:translate(calc(-50% + var(--dx,0px)), calc(-50% - 50px)) scale(0.15);opacity:0;}
+  }
+</style>
+</head>
+<body>
+
+<div class="grain"></div>
+
+<div class="letterbox top">
+  <div class="wrap"><span>Laid Beck</span><span class="hide-mobile">Scoring</span></div>
+</div>
+
+<nav>
+  <div class="wrap">
+    <div class="nav-name">Laid<span>Beck</span></div>
+    <div class="nav-links">
+      <a href="index.html#bio">About</a>
+      <a href="index.html#numbers">Numbers</a>
+      <a href="index.html#sync">For Labels</a>
+      <a href="scoring.html" class="active">Scoring</a>
+      <a href="index.html#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <section class="hero" style="border-top:none;" id="heroSection">
+    <div class="hero-glow" id="heroGlow"></div>
+    <div class="wrap">
+      <span class="label">Original Scoring</span>
+      <h1 class="display">For Film, <span class="it">TV</span> &amp; Games</h1>
+      <p class="tagline">Mood-Driven Cues Built To Picture</p>
+      <div class="rule"></div>
+      <div class="cta-row">
+        <a class="btn btn-solid magnetic" href="mailto:laid@laidbeckmusic.com">Request A Reel</a>
+        <a class="btn btn-ghost magnetic" href="index.html">Back To Home</a>
+      </div>
+    </div>
+  </section>
+
+  </div>
+
+  <div class="bleed">
+    <img src="assets/laid-beck-studio.jpg" alt="Laid Beck scoring at his studio setup">
+    <span class="bleed-cap">Scoring Session — Toronto</span>
+  </div>
+
+  <div class="wrap">
+
+  <section class="reveal">
+    <div class="lede">
+      <p class="pull">Laid Beck writes <span class="it">to picture</span> — cues shaped around tension, drive, and release, built for scenes rather than radio.</p>
+      <p class="body-text">Drawing on a production background in house, downtempo, and alt-pop, his scoring work leans cinematic and textural — pads that breathe, rhythm that pulls a scene forward, and restraint where the picture needs space. Full stems and alternate edits available on request for music supervisors and editors.</p>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="section-head"><span class="label">Range</span><h2>Moods &amp; Cue Types</h2></div>
+    <div class="mood-grid">
+      <span class="mood-chip">Tension</span>
+      <span class="mood-chip">Drive</span>
+      <span class="mood-chip">Uplift</span>
+      <span class="mood-chip">Melancholy</span>
+      <span class="mood-chip">Suspense</span>
+      <span class="mood-chip">Romance</span>
+      <span class="mood-chip">Montage</span>
+      <span class="mood-chip">Trailer Hits</span>
+      <span class="mood-chip">Ambient Texture</span>
+      <span class="mood-chip">Percussive Underscore</span>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="section-head"><span class="label">Portfolio</span><h2>Short Film — "Danny"</h2></div>
+    <div class="film-wrap">
+      <p>An example of Laid Beck's scoring work — original music and sound design built for the short film Danny, shaped scene by scene rather than as a standalone track.</p>
+      <div class="video-embed" id="filmEmbed"></div>
+      <a class="watch-link" href="https://youtu.be/KWcrvzSieDw?si=niAqC0Afl_7Vme42" target="_blank" rel="noopener">Watch On YouTube ↗</a>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="section-head"><span class="label">Working Together</span><h2>What To Expect</h2></div>
+    <div class="fit-grid">
+      <div class="fit-col">
+        <h3>What Laid Beck Offers</h3>
+        <ul>
+          <li>Custom cues written to locked or rough-cut picture</li>
+          <li>Fast turnaround with revision passes included</li>
+          <li>Full stems, alt edits, and loop-friendly versions</li>
+          <li>A distinct, warm-electronic palette that stands out from library music</li>
+        </ul>
+      </div>
+      <div class="fit-col">
+        <h3>Best Fit For</h3>
+        <ul>
+          <li>Independent film &amp; short film</li>
+          <li>TV placements and trailers</li>
+          <li>Game soundtracks and ambient/interactive scoring</li>
+          <li>Brand and advertising sync</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer class="reveal">
+    <span class="label">Contact</span>
+    <div class="contact-row" style="margin-top:32px;">
+      <div class="contact-item"><div class="lbl">Email</div><a class="val" href="mailto:laid@laidbeckmusic.com">laid@laidbeckmusic.com</a></div>
+      <div class="contact-item"><div class="lbl">Instagram</div><a class="val" href="https://www.instagram.com/jakebeckmusic" target="_blank" rel="noopener">@jakebeckmusic</a></div>
+      <div class="contact-item"><div class="lbl">Full EPK</div><a class="val" href="index.html">Back To Home</a></div>
+    </div>
+    <p class="closing">"We have no doubt this will be the start of an incredible, fruitful collaboration."</p>
+  </footer>
+
+</div>
+
+<div class="letterbox bottom">
+  <div class="wrap"><span class="hide-mobile">Press Kit — 2026</span><span>laidbeckmusic.com</span></div>
+</div>
+
+<script>
+  const heroSection = document.getElementById('heroSection');
+  heroSection.addEventListener('mousemove', (e)=>{
+    const rect = heroSection.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    heroSection.style.setProperty('--mx', x + '%');
+    heroSection.style.setProperty('--my', y + '%');
+  });
+
+  // ember trail — matches home page
+  let lastEmber = 0;
+  document.addEventListener('mousemove', (e)=>{
+    const now = Date.now();
+    if(now - lastEmber < 45) return;
+    lastEmber = now;
+    const r = document.createElement('div');
+    r.className = 'ember';
+    r.style.left = e.clientX + 'px';
+    r.style.top = e.clientY + 'px';
+    r.style.setProperty('--dx', ((Math.random()*24)-12) + 'px');
+    document.body.appendChild(r);
+    setTimeout(()=>r.remove(), 1200);
+  });
+
+  document.querySelectorAll('.magnetic').forEach(btn=>{
+    btn.addEventListener('mousemove', (e)=>{
+      const rect = btn.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width/2;
+      const y = e.clientY - rect.top - rect.height/2;
+      btn.style.transform = `translate(${x*0.25}px, ${y*0.25}px)`;
+    });
+    btn.addEventListener('mouseleave', ()=>{ btn.style.transform = 'translate(0,0)'; });
+  });
+
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{ if(entry.isIntersecting){ entry.target.classList.add('in'); io.unobserve(entry.target); } });
+  }, {threshold:0.15});
+  revealEls.forEach(el=>io.observe(el));
+
+  // lazy-load the film embed once it's near the viewport
+  const filmEmbed = document.getElementById('filmEmbed');
+  const filmIo = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){
+        filmEmbed.innerHTML = `<iframe src="https://www.youtube.com/embed/KWcrvzSieDw" title="Danny — Short Film" allow="autoplay; encrypted-media; picture-in-picture" allowfullscreen></iframe>`;
+        filmIo.unobserve(filmEmbed);
+      }
+    });
+  }, {threshold:0.2});
+  filmIo.observe(filmEmbed);
+</script>
+
+</body>
+</html>
