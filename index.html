@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Laid Beck — Electronic Press Kit</title>
+<meta name="description" content="Laid Beck — warm, cinematic electronic production from the artist formerly known as Jake Beck. EPK for sync, label, and press.">
+<meta property="og:title" content="Laid Beck — Electronic Press Kit">
+<meta property="og:description" content="Warm, cinematic electronic production. Sync-ready catalog. 230K+ built-in audience.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#070A12;
+    --bg-raised:#0D1420;
+    --bg-card:#101929;
+    --blue:#4C8DFF;
+    --cyan:#5CE1E6;
+    --violet:#7C5CFF;
+    --cream:#E8EDF5;
+    --muted:#7C8AA0;
+    --hair:#1C2536;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    background-image:
+      linear-gradient(var(--hair) 1px, transparent 1px),
+      linear-gradient(90deg, var(--hair) 1px, transparent 1px);
+    background-size:48px 48px;
+    background-attachment:fixed;
+    color:var(--cream);
+    font-family:'Inter',sans-serif;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  ::selection{background:var(--blue);color:var(--bg);}
+  a{color:inherit;text-decoration:none;}
+
+  .display{font-family:'Space Grotesk',sans-serif;letter-spacing:-0.02em;}
+  .mono{font-family:'JetBrains Mono',monospace;letter-spacing:0.01em;}
+  .eyebrow{
+    font-family:'JetBrains Mono',monospace;
+    font-size:11px;letter-spacing:0.18em;text-transform:uppercase;
+    color:var(--cyan);
+  }
+
+  .wrap{max-width:960px;margin:0 auto;padding:0 28px;}
+
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(7,10,18,0.85);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid var(--hair);
+  }
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:16px 28px;}
+  .nav-name{font-family:'Space Grotesk',sans-serif;font-size:18px;font-weight:600;}
+  .nav-name span{color:var(--cyan);}
+  .nav-links{display:flex;gap:26px;font-size:13px;color:var(--muted);}
+  .nav-links a:hover{color:var(--cyan);}
+
+  /* SCOPE — signature element: animated oscilloscope line */
+  .scope{
+    height:64px;margin:24px 0;
+    display:flex;align-items:center;gap:2px;
+  }
+  .scope span{
+    display:block;width:3px;border-radius:1px;
+    background:linear-gradient(180deg, var(--cyan), var(--blue));
+    animation:pulse 1.6s ease-in-out infinite;
+  }
+  @keyframes pulse{
+    0%,100%{transform:scaleY(0.4);opacity:0.5;}
+    50%{transform:scaleY(1);opacity:1;}
+  }
+
+  .hero{padding:88px 0 60px;}
+  .hero h1{
+    font-size:clamp(56px,11vw,116px);
+    font-weight:700;line-height:0.92;
+    color:var(--cream);
+  }
+  .hero h1 .accent{color:var(--cyan);}
+  .hero p.lede{max-width:520px;font-size:18px;color:var(--muted);margin-top:20px;}
+  .cta-row{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap;}
+  .btn{
+    display:inline-flex;align-items:center;gap:8px;
+    padding:13px 24px;
+    font-family:'JetBrains Mono',monospace;
+    font-size:12px;letter-spacing:0.05em;text-transform:uppercase;
+    border-radius:2px;border:1px solid var(--blue);
+    transition:all .15s ease;
+  }
+  .btn-solid{background:var(--blue);color:#050810;border-color:var(--blue);}
+  .btn-solid:hover{background:var(--cyan);border-color:var(--cyan);}
+  .btn-ghost{color:var(--cream);border-color:var(--hair);}
+  .btn-ghost:hover{border-color:var(--cyan);color:var(--cyan);}
+
+  section{padding:52px 0;border-top:1px solid var(--hair);}
+
+  .bio-grid{display:grid;grid-template-columns:1fr;gap:28px;}
+  .pull{font-family:'Space Grotesk',sans-serif;font-size:25px;font-weight:500;color:var(--cream);line-height:1.4;}
+  .pull em{color:var(--cyan);font-style:normal;}
+  .body-text{color:var(--muted);font-size:16px;margin-top:16px;max-width:640px;}
+
+  .track-card{
+    background:var(--bg-card);border:1px solid var(--hair);border-radius:6px;
+    padding:26px;display:flex;align-items:center;justify-content:space-between;
+    flex-wrap:wrap;gap:20px;
+  }
+  .track-meta .label{font-size:11px;color:var(--muted);}
+  .track-meta .title{font-family:'Space Grotesk',sans-serif;font-size:27px;font-weight:600;margin-top:4px;}
+  .play-btn{
+    width:50px;height:50px;border-radius:50%;
+    background:var(--blue);color:#050810;
+    display:flex;align-items:center;justify-content:center;
+    font-size:16px;flex-shrink:0;
+  }
+
+  .stat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--hair);border:1px solid var(--hair);}
+  @media(min-width:640px){.stat-grid{grid-template-columns:repeat(4,1fr);}}
+  .stat{background:var(--bg);padding:24px 20px;}
+  .stat .num{font-family:'JetBrains Mono',monospace;font-size:28px;color:var(--cyan);}
+  .stat .lbl{font-size:12px;color:var(--muted);margin-top:6px;}
+
+  .ledger-intro{max-width:640px;color:var(--muted);margin-bottom:22px;}
+  .ledger{border-top:1px solid var(--hair);}
+  .ledger-row{
+    display:flex;justify-content:space-between;align-items:baseline;
+    padding:15px 0;border-bottom:1px solid var(--hair);gap:16px;flex-wrap:wrap;
+  }
+  .ledger-row .what{font-size:15px;color:var(--cream);}
+  .ledger-row .tag{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--cyan);white-space:nowrap;}
+
+  .press-strip{display:flex;flex-wrap:wrap;gap:30px;align-items:center;color:var(--muted);}
+  .press-strip span{font-family:'Space Grotesk',sans-serif;font-size:18px;color:var(--cream);}
+
+  .fit-grid{display:grid;grid-template-columns:1fr;gap:34px;}
+  @media(min-width:720px){.fit-grid{grid-template-columns:1fr 1fr;}}
+  .fit-col h3{font-family:'Space Grotesk',sans-serif;font-size:19px;font-weight:600;margin-bottom:14px;}
+  .fit-col ul{list-style:none;}
+  .fit-col li{padding:11px 0;border-top:1px solid var(--hair);font-size:15px;color:var(--muted);display:flex;gap:10px;}
+  .fit-col li::before{content:"→";color:var(--cyan);flex-shrink:0;}
+
+  .scoring-teaser{
+    background:var(--bg-card);border:1px solid var(--hair);border-radius:6px;
+    padding:30px;display:flex;justify-content:space-between;align-items:center;
+    flex-wrap:wrap;gap:20px;
+  }
+  .scoring-teaser h3{font-family:'Space Grotesk',sans-serif;font-size:22px;font-weight:600;}
+  .scoring-teaser p{color:var(--muted);font-size:14px;margin-top:6px;max-width:420px;}
+
+  footer{padding:60px 0 76px;}
+  .contact-row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:22px;align-items:flex-end;padding-bottom:30px;border-bottom:1px solid var(--hair);}
+  .contact-item .lbl{font-size:11px;color:var(--muted);margin-bottom:4px;}
+  .contact-item .val{font-family:'JetBrains Mono',monospace;font-size:15px;color:var(--cyan);}
+  .closing{font-size:16px;color:var(--muted);margin-top:28px;max-width:480px;}
+
+  ::-webkit-scrollbar{width:10px;}
+  ::-webkit-scrollbar-track{background:var(--bg);}
+  ::-webkit-scrollbar-thumb{background:var(--hair);}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap">
+    <div class="nav-name">LAID<span>·</span>BECK</div>
+    <div class="nav-links">
+      <a href="#bio">About</a>
+      <a href="#numbers">Numbers</a>
+      <a href="#sync">For labels</a>
+      <a href="scoring.html">Scoring</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <section class="hero" style="border-top:none;">
+    <div class="eyebrow">The new project from Jake Beck</div>
+    <h1 class="display">Laid<br><span class="accent">Beck</span></h1>
+    <div class="scope" id="scope"></div>
+    <p class="lede">Warm, cinematic electronic production — pulling from house, downtempo, and alt-pop. Built by a songwriter who's already proven he can chart, sell out rooms, and hold an audience.</p>
+    <div class="cta-row">
+      <a class="btn btn-solid" href="#"><!-- replace with real Spotify/SoundCloud link -->Listen to "Burning"</a>
+      <a class="btn btn-ghost" href="scoring.html">View scoring reel</a>
+      <a class="btn btn-ghost" href="mailto:laid@laidbeckmusic.com">Get in touch</a>
+    </div>
+  </section>
+
+  <section id="bio">
+    <div class="eyebrow" style="margin-bottom:20px;">Bio</div>
+    <div class="bio-grid">
+      <p class="pull">Laid Beck is a Toronto-born producer and multi-instrumentalist crafting warm, laid-back electronic music — pulling from <em>house</em>, <em>downtempo</em>, and <em>alt-pop</em> influences.</p>
+      <p class="body-text">His first single "Burning" was immediately signed and has picked up early traction worldwide, blending musicality, ear-candy, and artful songwriting with electronic depth. That instinct isn't new — it's the same one that built a devoted following long before the first Laid Beck record.</p>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow" style="margin-bottom:20px;">Track spotlight</div>
+    <div class="track-card">
+      <div class="track-meta">
+        <div class="label mono">Lead single</div>
+        <div class="title">"Burning"</div>
+      </div>
+      <a href="#" class="play-btn" aria-label="Play Burning"><!-- replace with real streaming link -->▶</a>
+    </div>
+  </section>
+
+  <section id="numbers">
+    <div class="eyebrow" style="margin-bottom:20px;">Numbers</div>
+    <div class="stat-grid">
+      <div class="stat"><div class="num">230K+</div><div class="lbl">Followers across platforms</div></div>
+      <div class="stat"><div class="num">28.7M</div><div class="lbl">Total views</div></div>
+      <div class="stat"><div class="num">1.1M</div><div class="lbl">Views on latest reel</div></div>
+      <div class="stat"><div class="num">25K</div><div class="lbl">Average likes per post</div></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow" style="margin-bottom:12px;">The pedigree</div>
+    <p class="ledger-intro">That instinct isn't new. Under the name Jake Beck, he built a real, chart-verified track record — the exact proof points that make Laid Beck a proven bet, not a cold start.</p>
+    <div class="ledger">
+      <div class="ledger-row"><span class="what">Reached #66 on the iTunes Rock Chart</span><span class="tag mono">CHARTS</span></div>
+      <div class="ledger-row"><span class="what">Landed spots on BBC and Capital FM's Top 40</span><span class="tag mono">RADIO</span></div>
+      <div class="ledger-row"><span class="what">Recorded with Grammy-winning producer Gavin Brown (Three Days Grace, Billy Talent, Metric)</span><span class="tag mono">PRODUCTION</span></div>
+      <div class="ledger-row"><span class="what">Sold out Toronto's El Mocambo</span><span class="tag mono">LIVE</span></div>
+      <div class="ledger-row"><span class="what">Headlined a festival in Baja California, Mexico</span><span class="tag mono">LIVE</span></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow" style="margin-bottom:20px;">Press</div>
+    <div class="press-strip">
+      <span>Times Square</span>
+      <span>NY Weekly</span>
+      <span>Earmilk</span>
+      <span>MTV</span>
+      <span>Notion</span>
+    </div>
+  </section>
+
+  <section>
+    <div class="eyebrow" style="margin-bottom:20px;">Scoring</div>
+    <div class="scoring-teaser">
+      <div>
+        <h3>Original scoring for film, TV &amp; games</h3>
+        <p>Mood-driven cues built to picture — tension, drive, uplift, and everything between.</p>
+      </div>
+      <a class="btn btn-ghost" href="scoring.html">View scoring page →</a>
+    </div>
+  </section>
+
+  <section id="sync">
+    <div class="eyebrow" style="margin-bottom:24px;">For labels &amp; sync</div>
+    <div class="fit-grid">
+      <div class="fit-col">
+        <h3>What Laid Beck offers</h3>
+        <ul>
+          <li>Proven hit instinct — chart placement and radio play already achieved</li>
+          <li>Built-in audience of 230K+ carrying directly into the new project</li>
+          <li>Media-tested press history across Times Square, NY Weekly, Earmilk, MTV, Notion</li>
+          <li>Sync-ready catalog — mixed, mastered, stems on request</li>
+          <li>A distinct new sound built for film, TV, advertising, and lifestyle placements</li>
+        </ul>
+      </div>
+      <div class="fit-col">
+        <h3>What Laid Beck is looking for</h3>
+        <ul>
+          <li>Label partnership and A&amp;R support for the launch</li>
+          <li>Sync placement in film, TV, and advertising</li>
+          <li>Relationships with music supervisors and A&amp;R teams</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contact">
+    <div class="eyebrow" style="margin-bottom:24px;">Contact</div>
+    <div class="contact-row">
+      <div class="contact-item">
+        <div class="lbl mono">EMAIL</div>
+        <a class="val" href="mailto:laid@laidbeckmusic.com">laid@laidbeckmusic.com</a>
+      </div>
+      <div class="contact-item">
+        <div class="lbl mono">INSTAGRAM</div>
+        <a class="val" href="#">@laidbeckmusic</a>
+      </div>
+      <div class="contact-item">
+        <div class="lbl mono">SPOTIFY</div>
+        <a class="val" href="#">Laid Beck</a>
+      </div>
+    </div>
+    <p class="closing">"We have no doubt this will be the start of an incredible, fruitful collaboration."</p>
+  </footer>
+
+</div>
+
+<script>
+  const scope = document.getElementById('scope');
+  const heights = [14,22,34,18,40,26,12,30,44,20,28,16,36,24,14,32,18,42,26,20,30,16,38,22];
+  heights.forEach((h,i)=>{
+    const bar = document.createElement('span');
+    bar.style.height = h+'px';
+    bar.style.animationDelay = (i*0.05)+'s';
+    scope.appendChild(bar);
+  });
+</script>
+
+</body>
+</html>
