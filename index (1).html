@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Laid Beck — Electronic Press Kit</title>
+<meta name="description" content="Laid Beck — cinematic electronic production from the artist formerly known as Jake Beck. EPK for sync, label, and press.">
+<meta property="og:title" content="Laid Beck — Cinema For Your Ears">
+<meta property="og:description" content="Cinematic electronic production. Sync-ready catalog. 230K+ built-in audience.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@400;600;700;900&family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#050710;
+    --bg-2:#0A0E1A;
+    --bg-card:#0D1220;
+    --blue:#2F6BFF;
+    --blue-bright:#5B93FF;
+    --violet:#8B5CF6;
+    --ice:#9FCBFF;
+    --cream:#F2F5FC;
+    --muted:#7E89A3;
+    --hair:#20283C;
+    --bar-h:36px;
+    --mx:50%;
+    --my:50%;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--bg);
+    background-image:radial-gradient(rgba(91,147,255,0.07) 1px, transparent 1.5px);
+    background-size:24px 24px;
+    color:var(--cream);
+    font-family:'Inter',sans-serif;
+    font-weight:400;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    padding-top:var(--bar-h);
+    padding-bottom:var(--bar-h);
+    overflow-x:hidden;
+    cursor:default;
+  }
+  ::selection{background:var(--blue);color:#fff;}
+  a{color:inherit;text-decoration:none;}
+
+  .display{font-family:'Unbounded',sans-serif;font-weight:700;letter-spacing:-0.01em;text-transform:uppercase;}
+  .label{
+    font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:600;
+    letter-spacing:0.24em;text-transform:uppercase;color:var(--ice);
+  }
+
+  .grain{
+    position:fixed;inset:0;pointer-events:none;z-index:90;opacity:0.045;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .letterbox{position:fixed;left:0;right:0;height:var(--bar-h);background:var(--bg);z-index:100;display:flex;align-items:center;}
+  .letterbox.top{top:0;border-bottom:2px solid var(--hair);}
+  .letterbox.bottom{bottom:0;border-top:2px solid var(--hair);}
+  .letterbox .wrap{width:100%;display:flex;justify-content:space-between;}
+  .letterbox span{font-family:'Space Grotesk',sans-serif;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--muted);font-weight:600;}
+  @media(max-width:640px){.letterbox span.hide-mobile{display:none;}}
+
+  .wrap{max-width:940px;margin:0 auto;padding:0 32px;position:relative;z-index:2;}
+
+  nav{position:sticky;top:var(--bar-h);z-index:50;background:rgba(5,7,16,0.92);backdrop-filter:blur(10px);border-bottom:2px solid var(--hair);}
+  nav .wrap{display:flex;align-items:center;justify-content:space-between;padding:20px 32px;}
+  .nav-name{font-family:'Unbounded',sans-serif;font-weight:700;font-size:16px;letter-spacing:0;text-transform:uppercase;}
+  .nav-name span{color:var(--blue-bright);}
+  .nav-links{display:flex;gap:34px;font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);}
+  .nav-links a{position:relative;padding-bottom:3px;transition:color .2s ease;}
+  .nav-links a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--blue-bright);transition:width .25s ease;}
+  .nav-links a:hover::after{width:100%;}
+  .nav-links a:hover{color:var(--cream);}
+
+  /* HERO — speaker cone rings + cursor glow */
+  .hero{position:relative;padding:140px 0 110px;text-align:center;overflow:hidden;}
+  .hero-glow{
+    position:absolute;inset:-20%;pointer-events:none;z-index:0;
+    background:radial-gradient(520px circle at var(--mx) var(--my), rgba(47,107,255,0.26), transparent 60%);
+    transition:background .05s linear;
+  }
+  .rings{
+    position:absolute;top:50%;left:50%;pointer-events:none;z-index:0;
+    width:1px;height:1px;
+  }
+  .rings span{
+    position:absolute;top:0;left:0;border-radius:50%;
+    border:1px solid var(--blue);
+    transform:translate(-50%,-50%);
+    animation:ringPulse 3.6s ease-out infinite;
+    opacity:0;
+  }
+  .rings span:nth-child(1){width:180px;height:180px;animation-delay:0s;border-color:var(--blue);}
+  .rings span:nth-child(2){width:180px;height:180px;animation-delay:0.9s;border-color:var(--violet);}
+  .rings span:nth-child(3){width:180px;height:180px;animation-delay:1.8s;border-color:var(--blue);}
+  .rings span:nth-child(4){width:180px;height:180px;animation-delay:2.7s;border-color:var(--violet);}
+  @keyframes ringPulse{
+    0%{width:100px;height:100px;opacity:0.7;}
+    100%{width:820px;height:820px;opacity:0;}
+  }
+  .hero > .wrap{position:relative;z-index:2;}
+  .hero .label{display:block;margin-bottom:26px;}
+  .hero h1{
+    font-family:'Unbounded',sans-serif;font-weight:900;
+    font-size:clamp(52px,11vw,120px);
+    line-height:0.94;letter-spacing:-0.02em;
+    color:var(--cream);text-transform:uppercase;
+    position:relative;display:inline-block;
+    cursor:default;
+  }
+  .hero h1 .it{color:var(--blue-bright);}
+  .hero h1.glitch::before,
+  .hero h1.glitch::after{
+    content:attr(data-text);
+    position:absolute;top:0;left:0;width:100%;height:100%;
+    background:var(--bg);overflow:hidden;
+  }
+  .hero h1.glitch:hover::before{
+    left:3px;text-shadow:-2px 0 var(--blue-bright);
+    animation:glitchTop 0.5s infinite linear alternate-reverse;
+    color:var(--cream);
+  }
+  .hero h1.glitch:hover::after{
+    left:-3px;text-shadow:2px 0 var(--violet);
+    animation:glitchBot 0.4s infinite linear alternate-reverse;
+    color:var(--cream);
+  }
+  @keyframes glitchTop{0%{clip-path:inset(0 0 85% 0);}20%{clip-path:inset(15% 0 60% 0);}40%{clip-path:inset(40% 0 35% 0);}60%{clip-path:inset(65% 0 15% 0);}80%{clip-path:inset(10% 0 70% 0);}100%{clip-path:inset(80% 0 5% 0);}}
+  @keyframes glitchBot{0%{clip-path:inset(85% 0 0 0);}20%{clip-path:inset(60% 0 20% 0);}40%{clip-path:inset(20% 0 55% 0);}60%{clip-path:inset(5% 0 80% 0);}80%{clip-path:inset(50% 0 30% 0);}100%{clip-path:inset(30% 0 50% 0);}}
+
+  .hero .tagline{
+    font-family:'Space Grotesk',sans-serif;font-weight:500;text-transform:uppercase;
+    font-size:clamp(13px,1.8vw,16px);letter-spacing:0.3em;color:var(--muted);
+    margin-top:28px;
+  }
+  .rule{width:80px;height:3px;background:linear-gradient(90deg,var(--blue),var(--violet));margin:38px auto;}
+  .cta-row{display:flex;gap:16px;justify-content:center;margin-top:44px;flex-wrap:wrap;}
+  .btn{
+    display:inline-flex;align-items:center;gap:10px;padding:16px 32px;
+    font-family:'Space Grotesk',sans-serif;font-weight:600;
+    font-size:12px;letter-spacing:0.12em;text-transform:uppercase;
+    border:2px solid var(--blue);transition:transform .15s ease, box-shadow .2s ease, background .2s ease, border-color .2s ease, color .2s ease;
+    position:relative;
+  }
+  .btn-solid{background:var(--blue);color:#05070F;}
+  .btn-solid:hover{background:var(--blue-bright);border-color:var(--blue-bright);box-shadow:0 0 30px rgba(91,147,255,0.6);}
+  .btn-ghost{color:var(--cream);border-color:var(--hair);}
+  .btn-ghost:hover{border-color:var(--blue-bright);color:var(--blue-bright);box-shadow:0 0 20px rgba(91,147,255,0.25);}
+
+  section{padding:80px 0;border-top:2px solid var(--hair);position:relative;z-index:2;}
+  .section-head{text-align:center;margin-bottom:52px;}
+  .section-head .label{display:block;margin-bottom:16px;}
+
+  .reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1;transform:translateY(0);}
+
+  .bio-wrap{max-width:700px;margin:0 auto;text-align:center;}
+  .pull{
+    font-family:'Unbounded',sans-serif;font-weight:600;text-transform:uppercase;
+    font-size:clamp(20px,2.8vw,28px);color:var(--cream);line-height:1.4;letter-spacing:-0.005em;
+  }
+  .pull .it{color:var(--blue-bright);}
+  .body-text{color:var(--muted);font-size:16px;font-weight:300;margin-top:26px;line-height:1.7;}
+
+  .track-card{
+    max-width:600px;margin:0 auto;
+    display:flex;align-items:center;justify-content:space-between;
+    padding:34px 28px;border:2px solid var(--hair);
+    gap:24px;flex-wrap:wrap;background:var(--bg-card);
+    transition:border-color .3s ease, box-shadow .3s ease;
+  }
+  .track-card:hover{border-color:var(--blue);box-shadow:0 0 44px rgba(47,107,255,0.16);}
+  .track-meta .label{margin-bottom:8px;}
+  .track-meta .title{font-family:'Unbounded',sans-serif;font-size:24px;font-weight:700;text-transform:uppercase;}
+  .track-eq{display:flex;align-items:flex-end;gap:3px;height:20px;margin-top:12px;}
+  .track-eq span{display:block;width:3px;background:var(--blue-bright);animation:eq 1.2s ease-in-out infinite;animation-play-state:paused;}
+  .track-card.playing .track-eq span{animation-play-state:running;}
+  @keyframes eq{0%,100%{transform:scaleY(0.3);}50%{transform:scaleY(1);}}
+  .play-ring{
+    width:58px;height:58px;border:2px solid var(--blue);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;color:var(--blue-bright);
+    font-size:15px;flex-shrink:0;cursor:pointer;transition:all .25s ease;background:none;
+  }
+  .play-ring:hover{background:var(--blue);color:#05070F;box-shadow:0 0 28px rgba(47,107,255,0.55);}
+
+  .stat-grid{display:grid;grid-template-columns:repeat(2,1fr);max-width:740px;margin:0 auto;border:2px solid var(--hair);}
+  @media(min-width:640px){.stat-grid{grid-template-columns:repeat(4,1fr);}}
+  .stat{text-align:center;padding:28px 12px;border-left:2px solid var(--hair);transition:transform .25s ease, background .25s ease;}
+  .stat:first-child{border-left:none;}
+  .stat:hover{transform:translateY(-4px);background:rgba(47,107,255,0.06);}
+  .stat .num{font-family:'Unbounded',sans-serif;font-weight:700;font-size:32px;color:var(--blue-bright);}
+  .stat .lbl{font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted);margin-top:10px;}
+
+  .ledger-intro{max-width:600px;margin:0 auto 40px;text-align:center;color:var(--muted);font-size:15px;}
+  .ledger{max-width:700px;margin:0 auto;}
+  .ledger-row{
+    display:flex;justify-content:space-between;align-items:baseline;
+    padding:20px 4px;border-bottom:2px solid var(--hair);gap:16px;flex-wrap:wrap;
+    transition:background .2s ease, padding-left .2s ease;
+  }
+  .ledger-row:first-child{border-top:2px solid var(--hair);}
+  .ledger-row:hover{background:rgba(47,107,255,0.07);padding-left:14px;}
+  .ledger-row .what{font-size:15px;color:var(--cream);font-weight:400;}
+  .ledger-row .tag{font-family:'Space Grotesk',sans-serif;font-size:10px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--blue-bright);white-space:nowrap;}
+
+  .press-strip{display:flex;flex-wrap:wrap;gap:40px;align-items:center;justify-content:center;}
+  .press-strip span{font-family:'Space Grotesk',sans-serif;font-weight:600;text-transform:uppercase;letter-spacing:0.04em;font-size:17px;color:var(--muted);transition:color .25s ease;}
+  .press-strip span:hover{color:var(--blue-bright);}
+
+  .scoring-teaser{max-width:660px;margin:0 auto;text-align:center;}
+  .scoring-teaser h3{font-family:'Unbounded',sans-serif;font-weight:700;text-transform:uppercase;font-size:24px;margin-bottom:14px;}
+  .scoring-teaser p{color:var(--muted);font-size:15px;max-width:440px;margin:0 auto 30px;}
+
+  .fit-grid{display:grid;grid-template-columns:1fr;gap:0;max-width:780px;margin:0 auto;border:2px solid var(--hair);}
+  @media(min-width:720px){.fit-grid{grid-template-columns:1fr 1fr;}}
+  .fit-col{padding:32px;}
+  .fit-col:first-child{border-bottom:2px solid var(--hair);}
+  @media(min-width:720px){.fit-col:first-child{border-bottom:none;border-right:2px solid var(--hair);}}
+  .fit-col h3{font-family:'Unbounded',sans-serif;font-weight:700;text-transform:uppercase;font-size:17px;margin-bottom:20px;}
+  .fit-col ul{list-style:none;}
+  .fit-col li{padding:13px 0;border-top:1px solid var(--hair);font-size:14px;color:var(--muted);font-weight:300;transition:color .2s ease,padding-left .2s ease;}
+  .fit-col li:first-child{border-top:none;}
+  .fit-col li:hover{color:var(--cream);padding-left:8px;}
+
+  footer{padding:90px 0 60px;text-align:center;}
+  .contact-row{display:flex;flex-wrap:wrap;justify-content:center;gap:56px;padding-bottom:44px;}
+  .contact-item .lbl{font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-bottom:8px;}
+  .contact-item .val{font-family:'Unbounded',sans-serif;font-size:15px;font-weight:600;text-transform:uppercase;color:var(--blue-bright);transition:color .2s ease;}
+  .contact-item .val:hover{color:var(--ice);}
+  .closing{font-family:'Inter',sans-serif;font-style:italic;font-weight:300;font-size:16px;color:var(--muted);max-width:440px;margin:0 auto;}
+
+  /* sound ripple trail */
+  .ripple{
+    position:fixed;pointer-events:none;z-index:80;
+    width:8px;height:8px;border-radius:50%;
+    border:1px solid var(--blue-bright);
+    transform:translate(-50%,-50%);
+    animation:rippleOut 1s ease-out forwards;
+  }
+  @keyframes rippleOut{
+    0%{width:8px;height:8px;opacity:0.6;}
+    100%{width:70px;height:70px;opacity:0;}
+  }
+</style>
+</head>
+<body>
+
+<div class="grain"></div>
+
+<div class="letterbox top">
+  <div class="wrap"><span>Laid Beck</span><span class="hide-mobile">Electronic Press Kit</span></div>
+</div>
+
+<nav>
+  <div class="wrap">
+    <div class="nav-name">Laid<span>Beck</span></div>
+    <div class="nav-links">
+      <a href="#bio">About</a>
+      <a href="#numbers">Numbers</a>
+      <a href="#sync">For Labels</a>
+      <a href="scoring.html">Scoring</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <section class="hero" style="border-top:none;" id="heroSection">
+    <div class="hero-glow" id="heroGlow"></div>
+    <div class="rings" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
+    <div class="wrap">
+      <span class="label">The New Project From Jake Beck</span>
+      <h1 class="display glitch" data-text="LAID BECK">Laid <span class="it">Beck</span></h1>
+      <p class="tagline">Cinema For Your Ears</p>
+      <div class="rule"></div>
+      <p class="body-text" style="max-width:480px;margin-left:auto;margin-right:auto;">Cinematic electronic production — pulling from house, downtempo, and alt-pop. Built by a songwriter who's already proven he can chart, sell out rooms, and hold an audience.</p>
+      <div class="cta-row">
+        <a class="btn btn-solid magnetic" href="#"><!-- replace with real Spotify/SoundCloud link -->Listen To "Burning"</a>
+        <a class="btn btn-ghost magnetic" href="scoring.html">View Scoring</a>
+        <a class="btn btn-ghost magnetic" href="mailto:laid@laidbeckmusic.com">Get In Touch</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="bio" class="reveal">
+    <div class="section-head"><span class="label">Biography</span></div>
+    <div class="bio-wrap">
+      <p class="pull">Laid Beck is a Toronto-born producer and multi-instrumentalist crafting warm, cinematic electronic music — pulling from <span class="it">house</span>, <span class="it">downtempo</span>, and <span class="it">alt-pop</span> influences.</p>
+      <p class="body-text">His first single "Burning" was immediately signed and has picked up early traction worldwide, blending musicality, ear-candy, and artful songwriting with electronic depth. That instinct isn't new — it's the same one that built a devoted following long before the first Laid Beck record.</p>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="section-head"><span class="label">Track Spotlight</span></div>
+    <div class="track-card" id="trackCard">
+      <div class="track-meta">
+        <div class="label">Lead Single</div>
+        <div class="title">"Burning"</div>
+        <div class="track-eq" id="trackEq"></div>
+      </div>
+      <button class="play-ring" id="playBtn" aria-label="Preview Burning" aria-pressed="false"><!-- replace with real streaming link on the button's click handler --><span id="playIcon">▶</span></button>
+    </div>
+  </section>
+
+  <section id="numbers" class="reveal">
+    <div class="section-head"><span class="label">By The Numbers</span></div>
+    <div class="stat-grid">
+      <div class="stat"><div class="num">230K+</div><div class="lbl">Followers</div></div>
+      <div class="stat"><div class="num">28.7M</div><div class="lbl">Total Views</div></div>
+      <div class="stat"><div class="num">1.1M</div><div class="lbl">Latest Reel</div></div>
+      <div class="stat"><div class="num">25K</div><div class="lbl">Avg. Likes</div></div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="section-head"><span class="label">The Pedigree</span></div>
+    <p class="ledger-intro">That instinct isn't new. Under the name Jake Beck, he built a real, chart-verified track record — the exact proof points that make Laid Beck a proven bet, not a cold start.</p>
+    <div class="ledger">
+      <div class="ledger-row"><span class="what">Reached #66 on the iTunes Rock Chart</span><span class="tag">Charts</span></div>
+      <div class="ledger-row"><span class="what">Landed spots on BBC and Capital FM's Top 40</span><span class="tag">Radio</span></div>
+      <div class="ledger-row"><span class="what">Recorded with Grammy-winning producer Gavin Brown (Three Days Grace, Billy Talent, Metric)</span><span class="tag">Production</span></div>
+      <div class="ledger-row"><span class="what">Sold out Toronto's El Mocambo</span><span class="tag">Live</span></div>
+      <div class="ledger-row"><span class="what">Headlined a festival in Baja California, Mexico</span><span class="tag">Live</span></div>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="section-head"><span class="label">Press</span></div>
+    <div class="press-strip">
+      <span>Times Square</span><span>NY Weekly</span><span>Earmilk</span><span>MTV</span><span>Notion</span>
+    </div>
+  </section>
+
+  <section class="reveal">
+    <div class="scoring-teaser">
+      <span class="label">Scoring</span>
+      <h3 style="margin-top:18px;">Original Scoring For Film, TV &amp; Games</h3>
+      <p>Mood-driven cues built to picture — tension, drive, uplift, and everything between.</p>
+      <a class="btn btn-ghost magnetic" href="scoring.html">View Scoring Page</a>
+    </div>
+  </section>
+
+  <section id="sync" class="reveal">
+    <div class="section-head"><span class="label">For Labels &amp; Sync</span></div>
+    <div class="fit-grid">
+      <div class="fit-col">
+        <h3>What Laid Beck Offers</h3>
+        <ul>
+          <li>Proven hit instinct — chart placement and radio play already achieved</li>
+          <li>Built-in audience of 230K+ carrying directly into the new project</li>
+          <li>Media-tested press history across Times Square, NY Weekly, Earmilk, MTV, Notion</li>
+          <li>Sync-ready catalog — mixed, mastered, stems on request</li>
+          <li>A distinct new sound built for film, TV, advertising, and lifestyle placements</li>
+        </ul>
+      </div>
+      <div class="fit-col">
+        <h3>What Laid Beck Is Looking For</h3>
+        <ul>
+          <li>Label partnership and A&amp;R support for the launch</li>
+          <li>Sync placement in film, TV, and advertising</li>
+          <li>Relationships with music supervisors and A&amp;R teams</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <footer id="contact" class="reveal">
+    <span class="label">Contact</span>
+    <div class="contact-row" style="margin-top:32px;">
+      <div class="contact-item"><div class="lbl">Email</div><a class="val" href="mailto:laid@laidbeckmusic.com">laid@laidbeckmusic.com</a></div>
+      <div class="contact-item"><div class="lbl">Instagram</div><a class="val" href="#">@laidbeckmusic</a></div>
+      <div class="contact-item"><div class="lbl">Spotify</div><a class="val" href="#">Laid Beck</a></div>
+    </div>
+    <p class="closing">"We have no doubt this will be the start of an incredible, fruitful collaboration."</p>
+  </footer>
+
+</div>
+
+<div class="letterbox bottom">
+  <div class="wrap"><span class="hide-mobile">Press Kit — 2026</span><span>laidbeckmusic.com</span></div>
+</div>
+
+<script>
+  // cursor-reactive hero glow
+  const heroSection = document.getElementById('heroSection');
+  const heroGlow = document.getElementById('heroGlow');
+  heroSection.addEventListener('mousemove', (e)=>{
+    const rect = heroSection.getBoundingClientRect();
+    const x = ((e.clientX - rect.left) / rect.width) * 100;
+    const y = ((e.clientY - rect.top) / rect.height) * 100;
+    heroSection.style.setProperty('--mx', x + '%');
+    heroSection.style.setProperty('--my', y + '%');
+  });
+
+  // sound ripple trail on hero mousemove (throttled)
+  let lastRipple = 0;
+  heroSection.addEventListener('mousemove', (e)=>{
+    const now = Date.now();
+    if(now - lastRipple < 140) return;
+    lastRipple = now;
+    const r = document.createElement('div');
+    r.className = 'ripple';
+    r.style.left = e.clientX + 'px';
+    r.style.top = e.clientY + 'px';
+    document.body.appendChild(r);
+    setTimeout(()=>r.remove(), 1000);
+  });
+
+  // magnetic buttons
+  document.querySelectorAll('.magnetic').forEach(btn=>{
+    btn.addEventListener('mousemove', (e)=>{
+      const rect = btn.getBoundingClientRect();
+      const x = e.clientX - rect.left - rect.width/2;
+      const y = e.clientY - rect.top - rect.height/2;
+      btn.style.transform = `translate(${x*0.25}px, ${y*0.25}px)`;
+    });
+    btn.addEventListener('mouseleave', ()=>{ btn.style.transform = 'translate(0,0)'; });
+  });
+
+  // scroll reveal
+  const revealEls = document.querySelectorAll('.reveal');
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(entry=>{ if(entry.isIntersecting){ entry.target.classList.add('in'); io.unobserve(entry.target); } });
+  }, {threshold:0.15});
+  revealEls.forEach(el=>io.observe(el));
+
+  // build track EQ bars
+  const trackEq = document.getElementById('trackEq');
+  [8,14,10,18,12].forEach((h,i)=>{
+    const bar = document.createElement('span');
+    bar.style.height = h+'px';
+    bar.style.animationDelay = (i*0.1)+'s';
+    trackEq.appendChild(bar);
+  });
+
+  // play toggle (visual only — wire to real audio when link is ready)
+  const playBtn = document.getElementById('playBtn');
+  const playIcon = document.getElementById('playIcon');
+  const trackCard = document.getElementById('trackCard');
+  playBtn.addEventListener('click', ()=>{
+    const playing = trackCard.classList.toggle('playing');
+    playBtn.setAttribute('aria-pressed', playing);
+    playIcon.textContent = playing ? '❚❚' : '▶';
+  });
+</script>
+
+</body>
+</html>
